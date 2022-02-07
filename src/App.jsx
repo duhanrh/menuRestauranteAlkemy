@@ -11,12 +11,16 @@ import AuthLayout from './layouts/authLayout';
 
 //Pages
 import Index from './pages/index';
-//import Index2 from './pages/index2';
 import Gallery from './pages/gallery';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
-
 import Dashboard from './pages/admin/dashboard';
+import OrdersPage from './pages/admin/orders/index';
+import ProductsPage from './pages/admin/products/index';
+import CustomersPage from './pages/admin/customers/index';
+import ReportsPage from './pages/admin/reports/index';
+
+
 
 function App() {
   return (
@@ -30,16 +34,16 @@ function App() {
               </Route>
                 
 
-              <Route path='/admin' element={<PrivateLayout/>}>
+              <Route path='/administrator' element={<PrivateLayout/>}>
                 <Route path='' element={<Dashboard/>}/>
-                <Route path='deshboard' element={<Dashboard/>}/>
-                {/*
-                <Route path='proyectos' element={<Proyectos/>}/>
-                <Route path='vieditproyectos/:_id' element={<VieditProyectos />} />
-                <Route path='inscripciones' element={<Inscripciones/>}/>
-                <Route path='avances' element={<Avances/>}/> */}
-                {/* <Route path='observaciones/:_id' element={<Observaciones/>}/>
-                <Route path='cambiarpassword' element={<CambiarPassword/>}/> */}
+                <Route path='dashboard' element={<Dashboard/>}/>
+                <Route path='productos' element={<ProductsPage/>}/>
+                <Route path='clientes' element={<CustomersPage/>}/>
+                <Route path='ordenes' element={<OrdersPage/>}/>
+                <Route path='reportes' element={<ReportsPage/>}/>
+                {/* <Route path='vieditproyectos/:_id' element={<VieditProyectos />} /> */}
+               
+                {/* <Route path='cambiarpassword' element={<CambiarPassword/>}/> */}
               </Route>
 
               <Route path='/auth' element={<AuthLayout/>}>

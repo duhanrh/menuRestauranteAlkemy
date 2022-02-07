@@ -1,3 +1,17 @@
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
 body {
   font-size: .875rem;
 }
@@ -7,6 +21,23 @@ body {
   height: 16px;
   vertical-align: text-bottom;
 }
+
+
+/*
+BreadCrumb
+*/
+
+.alert {
+    position: relative;
+    padding: 0px !important;
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    height: 40px;
+
+}
+
 
 /*
  * Sidebar
