@@ -10,7 +10,8 @@ import {
     faClock,
     faAt,
     faPhoneAlt,
-    faStar
+    faStar,
+    faBars
     //faPlayCircle
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -36,6 +37,7 @@ library.add(
     faAt,
     faPhoneAlt,
     faStar,
+    faBars,
     faPlayCircle,
     faGithubAlt,
     faLinkedin,

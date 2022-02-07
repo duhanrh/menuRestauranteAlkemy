@@ -2,6 +2,7 @@ import React from 'react';//import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import './assets/css/style.css';
 
 //Layouts
@@ -19,8 +20,6 @@ import OrdersPage from './pages/admin/orders/index';
 import ProductsPage from './pages/admin/products/index';
 import CustomersPage from './pages/admin/customers/index';
 import ReportsPage from './pages/admin/reports/index';
-
-
 
 function App() {
   return (

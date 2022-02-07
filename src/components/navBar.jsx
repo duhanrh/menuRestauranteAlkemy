@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const NavBar = () => {
   return (
     <header className="navbar navbar-warning sticky-top bg-warning flex-md-nowrap p-0 shadow">
@@ -13,7 +14,9 @@ const NavBar = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon text-white">
+          <FontAwesomeIcon icon={['fa', 'bars']}/>
+        </span>
       </button>
       <input
         className="form-control form-control w-100"

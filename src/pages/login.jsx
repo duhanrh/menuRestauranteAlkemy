@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import ImgLogo from "../assets/img/logo.png";
+import { getUser2 } from '../API/login';
 //import ImgAbout from "../assets/img/about.jpg";
+//import dotenv from 'dotenv';
+
+//dotenv.config();
+
+const baseURL = process.env.REACT_APP_API_URL_LOGIN
 
 const LoginPage = () => {
   const [mostrarResetForm, setMostrarResetForm] = useState(false);
+
+
   return (
     <div className="container">
       <div
@@ -46,11 +54,38 @@ const LoginPage = () => {
   );
 };
 
+
+
 const FormularioLogin = ({ setMostrarResetForm }) => {
+
+//LISTADO USUARIOS
+
+  const consultarUsuario = async () => {
+    //setLoading(true);
+    await getUser2(
+      {
+        email: "challenge@alkemy.org",
+        password: "react"
+      },
+      (response) => {
+        console.log("Respuesta: ", response);
+        // setUsuarios(response.data);
+        // setEjecutarConsulta(false);
+        // setLoading(false);
+      },
+      (error) => {
+        console.error("Error: ", error);
+        // setLoading(false);
+      }
+    );
+  };
+
+
   return (
     <form className="text-white">
       <h3 className="fw-normal mb-2 pb-2 text-white text-center text-uppercase" style={{ letterSpacing: "1px" }}>
-        Iniciar sesión
+        Iniciar sesión<br />
+        {baseURL}
       </h3>
 
       <div className="mb-2">
@@ -83,6 +118,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
         <button
           className="btn btn-dark text-white btn-lg btn-block mt-2 mb-2 me-2"
           type="button"
+          onClick={() => consultarUsuario()}
         >
           Ingresar
         </button>
