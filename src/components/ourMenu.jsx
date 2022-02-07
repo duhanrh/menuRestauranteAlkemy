@@ -14,20 +14,30 @@ const OurMenu = () => {
               <div className="col-lg-12 d-flex justify-content-center">
                 <ul id="menu-flters">
                   <li data-filter="*" className="filter-active">
-                    Show All
+                    Mostrar todo
                   </li>
-                  <li data-filter=".filter-starters">Starters</li>
-                  <li data-filter=".filter-salads">Salads</li>
-                  <li data-filter=".filter-specialty">Specialty</li>
+                  <li data-filter=".filter-starters">Entradas</li>
+                  <li data-filter=".filter-salads">Ensaladas</li>
+                  <li data-filter=".filter-specialty">Especialidad</li>
                 </ul>
               </div>
             </div>
 
             <div className="row menu-container">
+              <div className="col-lg-6 menu-item filter-specialty">
+                <div className="menu-content">
+                  <a href="/#">Sopa de Langosta</a>
+                  <span>$30.00</span>
+                </div>
+                <div className="menu-ingredients">
+                  Lorem, deren, trataro, filede, nerada
+                </div>
+              </div>
+
               <div className="col-lg-6 menu-item filter-starters">
                 <div className="menu-content">
-                  <a href="/#">Lobster Bisque</a>
-                  <span>$5.95</span>
+                  <a href="/#">Pastel de Cangrejo</a>
+                  <span>$16.80</span>
                 </div>
                 <div className="menu-ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -36,29 +46,18 @@ const OurMenu = () => {
 
               <div className="col-lg-6 menu-item filter-specialty">
                 <div className="menu-content">
-                  <a href="/#">Bread barrel</a>
-                  <span>$6.95</span>
+                  <a href="/#">Filet Mignon</a>
+                  <span>$15.00</span>
                 </div>
                 <div className="menu-ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                Lorem, deren, trataro, filede, nerada
                 </div>
               </div>
 
-              <div className="col-lg-6 menu-item filter-starters">
+              <div className="col-lg-6 menu-item filter-specialty">
                 <div className="menu-content">
-                  <a href="/#">Crab Cake</a>
-                  <span>$7.95</span>
-                </div>
-                <div className="menu-ingredients">
-                  A delicate crab cake served on a toasted roll with lettuce and
-                  tartar sauce
-                </div>
-              </div>
-
-              <div className="col-lg-6 menu-item filter-salads">
-                <div className="menu-content">
-                  <a href="/#">Caesar Selections</a>
-                  <span>$8.95</span>
+                  <a href="/#">Pulpo a la gallega</a>
+                  <span>$85.00</span>
                 </div>
                 <div className="menu-ingredients">
                   Lorem, deren, trataro, filede, nerada
@@ -67,18 +66,17 @@ const OurMenu = () => {
 
               <div className="col-lg-6 menu-item filter-specialty">
                 <div className="menu-content">
-                  <a href="/#">Tuscan Grilled</a>
-                  <span>$9.95</span>
+                  <a href="/#">Filet Avestruz</a>
+                  <span>$120.00</span>
                 </div>
                 <div className="menu-ingredients">
-                  Grilled chicken with provolone, artichoke hearts, and roasted
-                  red pesto
+                Lorem, deren, trataro, filede, nerada
                 </div>
               </div>
 
               <div className="col-lg-6 menu-item filter-starters">
                 <div className="menu-content">
-                  <a href="/#">Mozzarella Stick</a>
+                  <a href="/#">Palo de Mozzarella</a>
                   <span>$4.95</span>
                 </div>
                 <div className="menu-ingredients">
@@ -86,37 +84,46 @@ const OurMenu = () => {
                 </div>
               </div>
 
-              <div className="col-lg-6 menu-item filter-salads">
+              <div className="col-lg-6 menu-item filter-starters">
                 <div className="menu-content">
-                  <a href="/#">Greek Salad</a>
-                  <span>$9.95</span>
+                  <a href="/#">Postre de milo</a>
+                  <span>$6.25</span>
                 </div>
                 <div className="menu-ingredients">
-                  Fresh spinach, crisp romaine, tomatoes, and Greek olives
+                Lorem, deren, trataro, filede, nerada
                 </div>
               </div>
 
               <div className="col-lg-6 menu-item filter-salads">
                 <div className="menu-content">
-                  <a href="/#">Spinach Salad</a>
+                  <a href="/#">Ensalada griega</a>
                   <span>$9.95</span>
                 </div>
                 <div className="menu-ingredients">
-                  Fresh spinach with mushrooms, hard boiled egg, and warm bacon
-                  vinaigrette
+                Lorem, deren, trataro, filede, nerada
                 </div>
               </div>
 
               <div className="col-lg-6 menu-item filter-specialty">
                 <div className="menu-content">
-                  <a href="/#">Lobster Roll</a>
-                  <span>$12.95</span>
+                  <a href="/#">Sancocho trifásico</a>
+                  <span>$15.80</span>
                 </div>
                 <div className="menu-ingredients">
-                  Plump lobster meat, mayo and crisp lettuce on a toasted bulky
-                  roll
+                Lorem, deren, trataro, filede, nerada
                 </div>
               </div>
+
+              <div className="col-lg-6 menu-item filter-specialty">
+                <div className="menu-content">
+                  <a href="/#">Sushi</a>
+                  <span>$18.80</span>
+                </div>
+                <div className="menu-ingredients">
+                Lorem, deren, trataro, filede, nerada
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

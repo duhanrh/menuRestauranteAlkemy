@@ -1,22 +1,23 @@
+import ImgLogo from "../assets/img/logo.png";
 const Header = () => {
   return (
-    <header id="header" className="bg-dark fixed-top d-flex align-items-center header-transparent">
+    <header id="header" className="bg-dark fixed-top d-flex align-items-center" >
     <div className="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div className="logo me-auto">
-        <h1><a href="index.html">Alkemy</a></h1>
-        {/* <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid"/></a> */}
+        {/* <h1><a href="index.html">Bambini</a></h1> */}
+        <a href="/"><img src={ImgLogo} alt="Logo RB" /><br /></a>
       </div>
 
+      <a href="auth" className="bg-du text-white book-a-table-btn scrollto">Ingresar</a> 
       <nav id="navbar" className="navbar order-last order-lg-0">
         <ul>
-          <li><a className="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a className="nav-link scrollto" href="#about">About</a></li>
+          <li><a className="nav-link scrollto active" href="/">Home</a></li>
+          <li><a className="nav-link scrollto" href="#about">Nosotros</a></li>
           <li><a className="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a className="nav-link scrollto" href="#specials">Specials</a></li>
-          <li><a className="nav-link scrollto" href="#events">Events</a></li>
+          <li><a className="nav-link scrollto" href="#events">Eventos</a></li>
           <li><a className="nav-link scrollto" href="#chefs">Chefs</a></li>
-          <li><a className="nav-link scrollto" href="#gallery">Gallery</a></li>
+          <li><a className="nav-link scrollto" href="gallery">Galeria</a></li>
           <li className="dropdown"><a href="/#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/#">Drop Down 1</a></li>
@@ -34,12 +35,11 @@ const Header = () => {
               <li><a href="/#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a className="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a className="nav-link scrollto" href="#contact">Contacto</a></li>
         </ul>
         <i className="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      <a href="#book-a-table" className="bg-warning book-a-table-btn scrollto">Reservar una mesa</a> 
-      {/* <a href="#book-a-table" className="btn btn-warning" style={{borderRadius:"25%"}}>Reservar</a> */}
+      <a href="#book-a-table" className="bg-du text-white book-a-table-btn scrollto">Reservar una mesa</a> 
     </div>
   </header>
   );

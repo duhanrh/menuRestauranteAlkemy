@@ -29,7 +29,7 @@ const Contact = () => {
         <div className="info-wrap">
           <div className="row">
             <div className="col-lg-3 col-md-6 info">
-              <i class="bi">
+              <i className="bi">
                 <FontAwesomeIcon icon={["fa", "map-marked-alt"]} />
               </i>
               <h4>Ubicación:</h4>
@@ -41,7 +41,7 @@ const Contact = () => {
             </div>
 
             <div className="col-lg-3 col-md-6 info mt-4 mt-lg-0">
-              <i class="bi">
+              <i className="bi">
                 <FontAwesomeIcon icon={["fa", "clock"]} />
               </i>
               <h4>Horario:</h4>
@@ -65,7 +65,7 @@ const Contact = () => {
             </div>
 
             <div className="col-lg-3 col-md-6 info mt-4 mt-lg-0">
-              <i class="bi">
+              <i className="bi">
                 <FontAwesomeIcon icon={["fas", "phone-alt"]} />
               </i>
               <h4>Teléfonos:</h4>
@@ -90,7 +90,7 @@ const Contact = () => {
                 name="name"
                 className="form-control"
                 id="name"
-                placeholder="Your Name"
+                placeholder="Tu nombre completo"
                 required
               />
             </div>
@@ -100,7 +100,7 @@ const Contact = () => {
                 className="form-control"
                 name="email"
                 id="email"
-                placeholder="Your Email"
+                placeholder="Tu correo electrónico"
                 required
               />
             </div>
@@ -111,7 +111,7 @@ const Contact = () => {
               className="form-control"
               name="subject"
               id="subject"
-              placeholder="Subject"
+              placeholder="Asunto"
               required
             />
           </div>
@@ -120,7 +120,7 @@ const Contact = () => {
               className="form-control"
               name="message"
               rows="5"
-              placeholder="Message"
+              placeholder="Mensaje"
               required
             ></textarea>
           </div>
@@ -128,11 +128,11 @@ const Contact = () => {
             <div className="loading">Loading</div>
             <div className="error-message"></div>
             <div className="sent-message">
-              Your message has been sent. Thank you!
+              Tu mensaje ha sido enviado. ¡Gracias!
             </div>
           </div>
           <div className="text-center">
-            <button type="submit">Send Message</button>
+            <button type="submit">Enviar Mensaje</button>
           </div>
         </form>
       </div>

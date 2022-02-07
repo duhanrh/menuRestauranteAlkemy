@@ -4,6 +4,7 @@ const Hero = () => {
       <div className="hero-container">
         <div
           id="heroCarousel"
+         
           data-bs-interval="5000"
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
@@ -14,12 +15,12 @@ const Hero = () => {
             {/* Slide 1 */}
             <div
               className="carousel-item active"
-              style={{backgroundImage: "url(assets/img/slide/slide-1.jpg)"}}
+              style={{backgroundImage: "url(../assets/img/slide/slide-1.jpg)"}}
             >
               <div className="carousel-container">
                 <div className="carousel-content">
                   <h2 className="animate__animated animate__fadeInDown">
-                  Restaurante <span>Alkemy</span> 
+                  Restaurante <span>Bambini</span> 
                   </h2>
                   <p className="animate__animated animate__fadeInUp">
                     Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea
@@ -31,15 +32,15 @@ const Hero = () => {
                   <div>
                     <a
                       href="#menu"
-                      className="btn-menu animate__animated animate__fadeInUp scrollto"
+                      className="btn btn-outline"
                     >
-                      Our Menu
+                      Nuestro Menú
                     </a>
                     <a
                       href="#book-a-table"
-                      className="btn-book animate__animated animate__fadeInUp scrollto"
+                      className="btn-book animate__animated animate__fadeInUp scrollto mt-2"
                     >
-                      Book a Table
+                      Reservar una mesa
                     </a>
                   </div>
                 </div>

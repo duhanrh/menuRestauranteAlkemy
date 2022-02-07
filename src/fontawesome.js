@@ -9,7 +9,8 @@ import {
     faMapMarkedAlt,
     faClock,
     faAt,
-    faPhoneAlt
+    faPhoneAlt,
+    faStar
     //faPlayCircle
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,6 +35,7 @@ library.add(
     faClock,
     faAt,
     faPhoneAlt,
+    faStar,
     faPlayCircle,
     faGithubAlt,
     faLinkedin,

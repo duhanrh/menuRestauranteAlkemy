@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-dark ">
       <div className="container">
-        <h3>Restaurante Alkemy</h3>
+        <h3>Restaurante Bambini</h3>
         <p>
           Lorem ipsum loren loren
         </p>
@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="copyright">
           &copy; Copyright{" "}
           <strong>
-            <span>Restaurante Alkemy</span>
+            <span>Restaurante Bambini</span>
           </strong>
           . All Rights Reserved
         </div>
