@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SiderBar = () => {
   return (
     <nav
@@ -8,34 +10,48 @@ const SiderBar = () => {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a className="nav-link btn btn-outline-warning text-white m-2" aria-current="page" href="/administrator/#">
-              <span data-feather="/admin/"></span>
+            <Link
+              to="/administrator/"
+              className="nav-link btn btn-outline-warning text-white m-2"
+            >
               Dashboard
-            </a>
+            </Link>
           </li>
+
           <li className="nav-item">
-            <a className="nav-link btn btn-outline-warning text-white m-2" href="/administrator/ordenes">
-              <span data-feather="file"></span>
+            <Link
+              to="/administrator/ordenes"
+              className="nav-link btn btn-outline-warning text-white m-2"
+            >
               Ordenes
-            </a>
+            </Link>
           </li>
-          <li className="nav-item ">
-            <a className="nav-link btn btn-outline-warning text-white m-2" href="/administrator/productos">
-              <span data-feather="shopping-cart"></span>
+
+          <li className="nav-item">
+            <Link
+              to="/administrator/productos"
+              className="nav-link btn btn-outline-warning text-white m-2"
+            >
               Productos
-            </a>
+            </Link>
           </li>
+
           <li className="nav-item">
-            <a className="nav-link btn btn-outline-warning text-white m-2" href="/administrator/clientes">
-              <span data-feather="users"></span>
+            <Link
+              to="/administrator/clientes"
+              className="nav-link btn btn-outline-warning text-white m-2"
+            >
               Clientes
-            </a>
+            </Link>
           </li>
+
           <li className="nav-item">
-            <a className="nav-link btn btn-outline-warning text-white m-2" href="/administrator/reportes">
-              <span data-feather="bar-chart-2"></span>
+            <Link
+              to="/administrator/reportes"
+              className="nav-link btn btn-outline-warning text-white m-2"
+            >
               Reportes
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

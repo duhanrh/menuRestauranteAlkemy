@@ -1,10 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate, Link } from 'react-router-dom';
+
 const NavBar = () => {
+
+  const navigate = useNavigate();
+  const cerrarSesion = () => {
+    localStorage.setItem('token', null);
+    navigate('/');
+    };
+
   return (
     <header className="navbar navbar-warning sticky-top bg-warning flex-md-nowrap p-0 shadow">
-      <a className="text-white col-md-3 col-lg-2 me-0 px-3" href="/#">
+      {/* <a className="text-white col-md-3 col-lg-2 me-0 px-3" href="/#">
         Bambini
-      </a>
+      </a> */}
+      <Link
+              to="/administrator/"
+              className="text-white col-md-3 col-lg-2 me-0 px-3"
+            >
+               Bambini
+            </Link>
       <button
         className="navbar-toggler position-absolute d-md-none collapsed"
         type="button"
@@ -26,9 +41,9 @@ const NavBar = () => {
       />
       <div className="navbar-nav">
         <div className="nav-item text-nowrap">
-          <a className="nav-link px-3 text-white" href="/#">
+          <button className="nav-link px-3 text-white" onClick={() => cerrarSesion()}>
             Cerrar sesión
-          </a>
+          </button>
         </div>
       </div>
     </header>

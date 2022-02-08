@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import ImgLogo from "../assets/img/logo.png";
-import { getUser2 } from '../API/login';
+import { getUser } from '../API/login';
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
+//import useFormData from "hooks/useFormData";
+
 //import ImgAbout from "../assets/img/about.jpg";
-//import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-//dotenv.config();
+// dotenv.config();
 
-const baseURL = process.env.REACT_APP_API_URL_LOGIN
+// const baseURL = process.env.REACT_APP_API_URL_LOGIN
 
 const LoginPage = () => {
   const [mostrarResetForm, setMostrarResetForm] = useState(false);
@@ -57,52 +62,59 @@ const LoginPage = () => {
 
 
 const FormularioLogin = ({ setMostrarResetForm }) => {
+  const navigate = useNavigate();
+  const { setToken } = useAuth();
 
-//LISTADO USUARIOS
+  const [datos, setDatos] = useState({
+    user: "",
+    pass: "",
+  });
 
-  const consultarUsuario = async () => {
-    //setLoading(true);
-    await getUser2(
-      {
-        email: "challenge@alkemy.org",
-        password: "react"
-      },
-      (response) => {
-        console.log("Respuesta: ", response);
-        // setUsuarios(response.data);
-        // setEjecutarConsulta(false);
-        // setLoading(false);
-      },
-      (error) => {
-        console.error("Error: ", error);
-        // setLoading(false);
-      }
-    );
+  const handleInputChange = (event) => {
+    console.log(event.target.name)
+    console.log(event.target.value)
+    setDatos({
+        ...datos,
+        [event.target.name] : event.target.value
+    })
+}
+
+  const consultarUsuario = async (user,pass) => {
+    getUser(user,pass);
+};
+
+  const submitForm = (event) => {
+    //console.log(event.preventDefault())
+    event.preventDefault()
+        console.log('enviando datos...' + datos.user + ' ' + datos.pass)
+       consultarUsuario(datos.user,datos.pass); 
   };
 
 
   return (
-    <form className="text-white">
+    <>
+    <form className="text-white" onSubmit={submitForm} >
       <h3 className="fw-normal mb-2 pb-2 text-white text-center text-uppercase" style={{ letterSpacing: "1px" }}>
         Iniciar sesión<br />
-        {baseURL}
       </h3>
 
       <div className="mb-2">
-        <label className="form-label text-uppercase" for="email">
+        <label className="form-label text-uppercase" htmlFor="user">
           Email
         </label>
         <input
           type="email"
-          id="email"
-          name="email"
+          id="user"
+          name="user"
           defaultValue={"challenge@alkemy.org"}
           className="form-control form-control-lg"
+          onChange={handleInputChange}
+          placeholder="Correo electronico"
         />
       </div>
 
       <div className="mb-2">
-        <label className="form-label text-uppercase" for="pass">
+        <label className="form-label text-uppercase" htmlFor="pass">
           Contraseña
         </label>
         <input
@@ -111,20 +123,24 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
           name="pass"
           defaultValue={"react"}
           className="form-control form-control-lg"
+          onChange={handleInputChange}
+          placeholder="Contraseña"
         />
       </div>
 
       <div className="pt-1 mb-2">
         <button
           className="btn btn-dark text-white btn-lg btn-block mt-2 mb-2 me-2"
-          type="button"
-          onClick={() => consultarUsuario()}
+          type="submit"
         >
           Ingresar
         </button>
-        <a href="/" className="btn btn-dark text-white btn-lg btn-block mt-2 mb-2 me-2">
-          Cancelar
-        </a>
+        <Link
+              to="/"
+              className="btn btn-dark text-white btn-lg btn-block mt-2 mb-2 me-2"
+            >
+              Cancelar
+            </Link>
       </div>
 
       <button
@@ -138,11 +154,18 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
 
       <p className="mb-2 pb-lg-2 text-white">
         <span>¿No tienes una cuenta?{" "}</span>
-        <a href="/auth/registro">
-          Registrate aquí
-        </a>
+        <Link
+              to="/auth/registro"
+            >
+              Registrate aquí
+            </Link>
       </p>
     </form>
+    <ul>
+                <li>{datos.user}</li>
+                <li>{datos.pass}</li>
+            </ul>
+    </>
   );
 };
 
@@ -161,7 +184,7 @@ const FormularioResetPassword = ({ setMostrarResetForm }) => {
           Ingresa tú correo electrónico y recibiras un email o una notificación
           con los nuevos datos de ingreso al sistema.
         </p>
-        <label className="form-label text-uppercase visually-hidden" for="email">
+        <label className="form-label text-uppercase visually-hidden" htmlFor="email">
           Email
         </label>
         <input
@@ -193,9 +216,16 @@ const FormularioResetPassword = ({ setMostrarResetForm }) => {
       
       <p className="mb-2 pb-lg-2 text-white">
         ¿No tienes una cuenta?{" "}
-        <a href="/auth/registro" className="text-du fw-bold">
+        {/* <a href="/auth/registro" className="text-du fw-bold">
           Registrate aquí
-        </a>
+        </a> */}
+        <Link
+              to="/auth/registro"
+              className="text-du fw-bold"
+            >
+              Registrate aquí
+            </Link>
+
       </p>
     </form>
   );

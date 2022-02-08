@@ -37,7 +37,7 @@ const RegisterPage = () => {
               <form className="text-white">
                 <div className="row">
                   <div className="col-md-6 mb-2">
-                    <label className="form-label text-uppercase" for="nombre">
+                    <label className="form-label text-uppercase" htmlFor="nombre">
                       Nombre(s)
                     </label>
                     <input
@@ -52,7 +52,7 @@ const RegisterPage = () => {
                   <div className="col-md-6 mb-2">
                     <label
                       className="form-label text-uppercase"
-                      for="apellidos"
+                      htmlFor="apellidos"
                     >
                       Apellido
                     </label>
@@ -66,7 +66,7 @@ const RegisterPage = () => {
                   </div>
                 </div>
                 <div className="mb-2">
-                  <label className="form-label text-uppercase" for="email">
+                  <label className="form-label text-uppercase" htmlFor="email">
                     Email
                   </label>
                   <input
@@ -80,7 +80,7 @@ const RegisterPage = () => {
 
                 <div className="row">
                   <div className="col-md-6 mb-2">
-                    <label className="form-label text-uppercase" for="telefono">
+                    <label className="form-label text-uppercase" htmlFor="telefono">
                       Telefono
                     </label>
                     <input
@@ -92,7 +92,7 @@ const RegisterPage = () => {
                     />
                   </div>
                   <div className="col-md-6 mb-2">
-                    <label className="form-label text-uppercase" for="pass">
+                    <label className="form-label text-uppercase" htmlFor="pass">
                       Contraseña
                     </label>
                     <input
@@ -106,7 +106,7 @@ const RegisterPage = () => {
                 </div>
 
                 <div className="row">
-                <label className="form-label text-uppercase" for="gender">
+                <label className="form-label text-uppercase" htmlFor="gender">
                     Sexo
                   </label>
                   <div className="col-md-3">
