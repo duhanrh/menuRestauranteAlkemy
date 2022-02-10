@@ -121,7 +121,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
           if (error.response.status === 401) {
             AlertSwal(
               "error",
-              "Oops...",
+              "¡Ups!",
               "Usuario y/o contraseña incorrecta",
               "Aceptar",
               ""
@@ -129,7 +129,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
           } else {
             AlertSwal(
               "error",
-              "Oops...",
+              "¡Ups!",
               "Favor comunicate con el administrador e indicale el siguiente código <<" +
                 error.response.status +
                 ">>",
@@ -146,7 +146,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
           console.log("Status: " + error.status, "Error: ", error.message);
           AlertSwal(
             "error",
-            "Oops...",
+            "¡Ups!",
             "Se realizó la solicitud pero no se recibió respuesta, te presentamos más detalles a continuación \n" +
               error.request,
             "Aceptar",
@@ -156,7 +156,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
           // Algo sucedió al configurar la solicitud y provocó un error
           AlertSwal(
             "error",
-            "Oops...",
+            "¡Ups!",
             "Algo sucedió al configurar la solicitud y provocó un error. \n" +
               error.message,
             "Aceptar",
