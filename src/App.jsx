@@ -17,6 +17,7 @@ import PrivateLayout from "./layouts/privateLayout";
 import AuthLayout from "./layouts/authLayout";
 
 //Pages
+import Error404 from "./pages/error404";
 import Index from "./pages/index";
 import Gallery from "./pages/gallery";
 import LoginPage from "./pages/login";
@@ -94,7 +95,8 @@ function App() {
               {/* <Route path='errorauth' element={<ErrorAuth/>}/> */}
             </Route>
 
-            {/* <Route path='*' element={<Error404/>}/> */}
+            <Route path='*' element={<Error404 />}/>
+
           </Routes>
         </Router>
       </UserContext.Provider>

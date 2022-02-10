@@ -1,0 +1,99 @@
+@keyframes error404 {
+
+    /* from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      } */
+    from {
+        margin-top: 10%;
+        width: 300%
+    }
+
+    to {
+        margin-top: 25%;
+        width: 100%;
+    }
+}
+
+@keyframes rebote {
+    70% {
+        transform: translateY(0%);
+        padding-bottom: 7px;
+    }
+
+    80% {
+        transform: translateY(-15%);
+    }
+
+    90% {
+        transform: translateY(0%);
+        padding-bottom: 8px;
+    }
+
+    95% {
+        transform: translateY(-7%);
+    }
+
+    97% {
+        transform: translateY(0%);
+        padding-bottom: 9px;
+    }
+
+    99% {
+        transform: translateY(-3%);
+    }
+
+    100% {
+        transform: translateY(0);
+        padding-bottom: 9px;
+        opacity: 1;
+    }
+}
+
+#error404 {
+    background: -webkit-linear-gradient(black, #ffb03b, black);
+}
+
+.error-template {
+    padding: 30px 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.error-title {
+    font-size: 750% !important;
+    font-weight: bold;
+    color: #ffb03b;
+    text-decoration: blink;
+    /* animation-name: error404;
+    animation-duration: 4s; 
+    animation-iteration-count: infinite;*/
+    animation-name: rebote;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+}
+
+.error-details {
+    /* background-color:rgba(0,0,0,0.5); */
+    /* color:white; */
+    color: black;
+    font-size: 24px;
+    /* border-radius: 2rem 2rem 0 0; */
+}
+
+Link,
+a:hover {
+    color: white !important;
+}
+
+.error-actions {
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.error-actions .btn {
+    margin: 10px;
+}
