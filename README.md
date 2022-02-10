@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-It is in demo mode at the following [https://restaurantealkemy.herokuapp.com/](url)
+It is in demo mode at the following [url](https://restaurantealkemy.herokuapp.com/)
 
 ## Available Scripts
 
