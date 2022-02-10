@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //TRAER TODOS LOS PRODUCTOS
 export const getProducts = async (successCallback, errorCallback) => {
-    const options = { method: 'GET', url: 'http://localhost:5000/productos' };
+    const options = { method: 'GET', url: 'https://api.spoonacular.com/recipes/716429/information?apiKey=YOUR-API-KEY&includeNutrition=true .' };
     await axios.request(options).then(successCallback).catch(errorCallback);
   };
 

@@ -1,17 +1,28 @@
 import axios from "axios";
-// import dotenv from 'dotenv';
+// // import dotenv from 'dotenv';
 
-// dotenv.config();
+// // dotenv.config();
 
-// const baseURL = process.env.REACT_APP_API_URL_LOGIN;
+// // const baseURL = process.env.REACT_APP_API_URL_LOGIN;
 
-export const getUser = (usuario, clave) => {
-  
+//SOLUCION CORS
+//DEMO: https://cors-anywhere.herokuapp.com/';
+//MY HEROKU: https://cors-anywhere.herokuapp.com/';
+
+const proxxy = 'https://cors-anywhere.herokuapp.com/';
+
+export const getUserA = (usuario, clave) => {
   axios
-    .get("http://challenge-react.alkemy.org/?email="+usuario+"&password="+clave)
-    .then((response) => {
+    .get(proxxy+"http://challengee-react.alkemy.org/?email=" + usuario + "&password=" + clave, {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => {
       // Success 🎉
-      console.log(response);
+      console.log(response.data);
+      //alert(response.data)
+      //response.data;
     })
     .catch((error) => {
       // Error 😨
@@ -20,22 +31,47 @@ export const getUser = (usuario, clave) => {
          * La solicitud se realizó y el servidor respondió con un
          * código de estado que cae fuera del rango de 2xx
          */
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+        console.log("Response data:",error.response.data);
+        console.log("Status",error.response.status);
+        console.log("Headers",error.response.headers);
       } else if (error.request) {
         /*
          * Se realizó la solicitud pero no se recibió respuesta, `error.request`
          * es una instancia de XMLHttpRequest en el navegador y una instancia
          * de http.ClientRequest en Node.js
          */
-        console.log(error.request);
+        console.log("ERROR:",error.request);
       } else {
         // Algo sucedió al configurar la solicitud y provocó un error
-        console.log("Error", error.message);
+        console.log("ERROR", error.message);
       }
-      console.log(error.config);
+      console.log("Error config",error.config);
     });
 };
 
-export const decodeToken = {}
+//EXTRAER DATOS DEL USUARIO
+export const getUserTest = async (successCallback, errorCallback) => {
+    const options = { method: 'GET', url: proxxy+'http://challenge-react.alkemy.org/?email=challenge@alkemy.org&password=react' };
+    await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const getUser = async (usuario, clave, successCallback, errorCallback) => {
+  const options = {
+    method: 'GET',
+    url: proxxy + 'http://challenge-react.alkemy.org/?email=' + usuario + '&password=' + clave,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const createUser = async (data, successCallback, errorCallback) => {
+  const options = {
+    method: 'POST',
+    url: 'http://challenge-react.alkemy.org/',
+    headers: { 'Content-Type': 'application/json' },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};

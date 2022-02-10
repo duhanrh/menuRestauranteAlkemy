@@ -291,10 +291,10 @@ const Index = () => {
 
           <div className="row">
             <div className="col-lg-4 col-md-4">
-              <div class="card m-2">
-                <img class="card-img-top" src={ImgChef1} alt="Card" />
-                <div class="card-body">
-                  <p class="card-text">
+              <div className="card m-2">
+                <img className="card-img-top" src={ImgChef1} alt="Card" />
+                <div className="card-body">
+                  <p className="card-text">
                     <h5 className="color-du">Duhan Renteria</h5>
                     Especialista en lore lorem
                     </p>
@@ -313,10 +313,10 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-4 col-md-4">
-              <div class="card m-2">
-                <img class="card-img-top" src={ImgChef2} alt="Card" />
-                <div class="card-body">
-                  <p class="card-text">
+              <div className="card m-2">
+                <img className="card-img-top" src={ImgChef2} alt="Card" />
+                <div className="card-body">
+                  <p className="card-text">
                     <h5 className="color-du">Carmen Herca</h5>
                     Especialista en lore lorem
                     </p>
@@ -336,10 +336,10 @@ const Index = () => {
               </div>
             </div>
             <div className="col-lg-4 col-md-4">
-              <div class="card m-2">
-                <img class="card-img-top" src={ImgChef3} alt="Card" />
-                <div class="card-body">
-                  <p class="card-text">
+              <div className="card m-2">
+                <img className="card-img-top" src={ImgChef3} alt="Card" />
+                <div className="card-body">
+                  <p className="card-text">
                     <h5 className="color-du">Alex King</h5>
                     Especialista en lore lorem
                   </p>
