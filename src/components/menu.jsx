@@ -8,12 +8,13 @@ import Card from "./card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loading from "./loading";
 //import DataInfoMenu from "./dataInfoMenu";
+import { useFormik } from "formik";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
-import SearchPlato from "./searchPlato";
+//import SearchPlato from "./searchPlato";
 import NoDataComponent from "./noDataComponent";
 import AlertSwal from "./alertSwal";
-import { getRecipesRandom } from "../API/products2.js";
+import { getRecipesRandom, getRecipeLike } from "../API/products2.js";
 //import "../../assets/css/dashboard.css";
 
 const MenuComponent = () => {
@@ -39,6 +40,11 @@ const MenuComponent = () => {
 
   const limpiar = () => {
     dispatch({ type: ACCIONES.LIMPIAR_MENU });
+  };
+
+  const buscar = (search) => {
+    console.log("Soyd duhan",search);
+    //dispatch({ type: ACCIONES.AGREGAR, payload: id });
   };
 
   const fetchRecetasAleatorias = async () => {
@@ -183,7 +189,7 @@ const MenuComponent = () => {
               <FontAwesomeIcon className="fs-1" icon={["fa", "dollar-sign"]} />
             </div>
             <div className="flex-grow-1 ms-3 me-3 text-end">
-              <h5>{state.acumulativoPrecioMenu}</h5>
+              <h5>{state.acumulativoPrecioMenu.toFixed(2)}</h5>
               <span className="fs-6 color-du fw-bold">Precio del menú</span>
             </div>
           </div>
@@ -201,8 +207,15 @@ const MenuComponent = () => {
               <FontAwesomeIcon className="fs-1" icon={["fa", "clock"]} />
             </div>
             <div className="flex-grow-1 ms-3 me-3 text-end">
-            <h5>{(state.platosNoVeganos+platosVeganos)>0 ? state.acumulativoTiempoMenu / (state.platosNoVeganos+platosVeganos) : 0}</h5>
-              <span className="fs-6 color-du fw-bold">Promedio preparación</span>
+              <h5>
+                {state.platosNoVeganos + platosVeganos > 0
+                  ? (state.acumulativoTiempoMenu /
+                    (state.platosNoVeganos + platosVeganos)).toFixed(2)
+                  : "0.00"}
+              </h5>
+              <span className="fs-6 color-du fw-bold">
+                Promedio preparación
+              </span>
             </div>
           </div>
         </div>
@@ -219,7 +232,12 @@ const MenuComponent = () => {
               <FontAwesomeIcon className="fs-1" icon={["fa", "tags"]} />
             </div>
             <div className="flex-grow-1 ms-3 me-3 text-end">
-            <h5>{(state.platosNoVeganos+platosVeganos)>0 ? state.acumulativoHealtScoreMenu / (state.platosNoVeganos+platosVeganos) : 0}</h5>
+              <h5>
+                {state.platosNoVeganos + platosVeganos > 0
+                  ? (state.acumulativoHealtScoreMenu /
+                    (state.platosNoVeganos + platosVeganos)).toFixed(2)
+                  : "0.00"}
+              </h5>
               <span className="fs-6 color-du fw-bold">Promedio healthy</span>
             </div>
           </div>
@@ -237,9 +255,22 @@ const MenuComponent = () => {
                       Limpiar Menu
                     </button>
                   </div>
-                  {menu.map((item, index) => (
+                  {/* {menu.map((item, index) => (
                     <MenuItem key={index} data={item} eliminar={eliminar} />
-                  ))}
+                  ))} */}
+
+                  <div className="row">
+                    {menu.map((item, index) => (
+                      <div className="col-md-6">
+                        <PlatoItem
+                          key={index}
+                          data={item}
+                          eliminar={eliminar}
+                          edicion={true}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </>
               ) : (
                 <div className="col-12">
@@ -284,5 +315,145 @@ const MenuComponent = () => {
     </>
   );
 };
+
+const SearchPlato = (...state) => {
+
+  const [loading, setLoading] = useState(false);
+
+  const fetchRecetasLike = async (field, search) => {
+    setLoading(true);
+    await getRecipeLike(field, search,
+      (response) => {
+        console.log("Respuesta", response.data);
+        //platos(response.data);
+        state.platos = response.data;
+        console.log("Recetas:", state.platos);
+        // AlertSwal(
+        //   "success",
+        //   "Carga exitosa",
+        //   "Se ha cargado la información de acuerdo a tus parametros de consulta",
+        //   "Cerrar",
+        //   ""
+        // );
+        setLoading(false);
+      },
+      (error) => {
+        if (error.response) {
+          if (error.response.status === 401) {
+            AlertSwal("error", "¡Ups!", "Error consultando 401", "Aceptar", "");
+          } else {
+            AlertSwal(
+              "error",
+              "¡Ups!",
+              "Favor comunicate con el administrador e indicale el siguiente código <<" +
+                error.response.status +
+                ">>",
+              "Aceptar",
+              ""
+            );
+          }
+        } else if (error.request) {
+          console.log("Status: " + error.status, "Error: ", error.message);
+          AlertSwal(
+            "error",
+            "¡Ups!",
+            "Se realizó la solicitud pero no se recibió respuesta, te presentamos más detalles a continuación \n" +
+              error.request,
+            "Aceptar",
+            ""
+          );
+        } else {
+          AlertSwal(
+            "error",
+            "¡Ups!",
+            "Algo sucedió al configurar la solicitud y provocó un error. \n" +
+              error.message,
+            "Aceptar",
+            ""
+          );
+        }
+        setLoading(false);
+      }
+    );
+  };
+  
+  const formik = useFormik({
+    initialValues: {
+      search: "",
+    },
+    validationSchema: Yup.object({
+      search: Yup.string()
+        .min(2, "El campo de búsqueda debe contener 2 caracteres o más")
+        .required("Campo requerido"),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+      console.log("estoy en " , values)
+      fetchRecetasLike("title","G");
+
+    },
+  });
+
+  return (
+    <form onSubmit={formik.handleSubmit} className="mb-3">
+      <div
+        className="btn-toolbar mb-3"
+        role="toolbar"
+        aria-label="Toolbar with button groups"
+      >
+        <div className="input-group">
+          <input
+            id="search"
+            type="text"
+            placeholder="Buscador de platos"
+            aria-label="Buscar plato"
+            aria-describedby="btnGroupAddon"
+            {...formik.getFieldProps("search")}
+            className="form-control borderr-0 bg-du text-white"
+          />
+          <div
+            className="input-group-text bg-dark text-white"
+            id="btnGroupAddon"
+          >
+            <button
+              type="submit"
+              className="btn btn-outline-dark text-white align-middle"
+            >
+              <FontAwesomeIcon icon={["fa", "search"]} />
+            </button>
+          </div>
+        </div>
+      </div>
+      {formik.touched.search && formik.errors.search ? (
+        <div
+          className="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{formik.errors.search}</strong> 
+          {/* <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button> */}
+        </div>
+      ) : null}
+      <div className="row g-3 align-items-center">
+  <div className="col-auto">
+    <label for="inputPassword6" className="col-form-label">Password</label>
+  </div>
+  <div className="col-auto">
+    <input type="password" id="inputPassword6" className="form-control" aria-describedby="passwordHelpInline"/>
+  </div>
+  <div className="col-auto">
+    <span id="passwordHelpInline" className="form-text">
+      Must be 8-20 characters long.
+    </span>
+  </div>
+</div>
+    </form>
+  );
+};
+
 
 export default MenuComponent;

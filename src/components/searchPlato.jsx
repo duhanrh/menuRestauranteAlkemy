@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SearchPlato = () => {
+const SearchPlato = ({buscar}) => {
   const formik = useFormik({
     initialValues: {
       search: "",
@@ -13,10 +13,13 @@ const SearchPlato = () => {
         .min(2, "El campo de búsqueda debe contener 2 caracteres o más")
         .required("Campo requerido"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, buscar) => {
       alert(JSON.stringify(values, null, 2));
+      console.log("estoy en " , buscar)
+
     },
   });
+
   return (
     <form onSubmit={formik.handleSubmit} className="mb-3">
       <div
@@ -61,6 +64,19 @@ const SearchPlato = () => {
           ></button> */}
         </div>
       ) : null}
+      <div className="row g-3 align-items-center">
+  <div className="col-auto">
+    <label for="inputPassword6" className="col-form-label">Password</label>
+  </div>
+  <div className="col-auto">
+    <input type="password" id="inputPassword6" className="form-control" aria-describedby="passwordHelpInline"/>
+  </div>
+  <div className="col-auto">
+    <span id="passwordHelpInline" className="form-text">
+      Must be 8-20 characters long.
+    </span>
+  </div>
+</div>
     </form>
   );
 };
