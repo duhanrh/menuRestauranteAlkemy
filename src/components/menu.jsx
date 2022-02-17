@@ -201,8 +201,15 @@ const MenuComponent = () => {
               <FontAwesomeIcon className="fs-1" icon={["fa", "clock"]} />
             </div>
             <div className="flex-grow-1 ms-3 me-3 text-end">
-            <h5>{(state.platosNoVeganos+platosVeganos)>0 ? state.acumulativoTiempoMenu / (state.platosNoVeganos+platosVeganos) : 0}</h5>
-              <span className="fs-6 color-du fw-bold">Promedio preparación</span>
+              <h5>
+                {state.platosNoVeganos + platosVeganos > 0
+                  ? state.acumulativoTiempoMenu /
+                    (state.platosNoVeganos + platosVeganos)
+                  : 0}
+              </h5>
+              <span className="fs-6 color-du fw-bold">
+                Promedio preparación
+              </span>
             </div>
           </div>
         </div>
@@ -219,7 +226,12 @@ const MenuComponent = () => {
               <FontAwesomeIcon className="fs-1" icon={["fa", "tags"]} />
             </div>
             <div className="flex-grow-1 ms-3 me-3 text-end">
-            <h5>{(state.platosNoVeganos+platosVeganos)>0 ? state.acumulativoHealtScoreMenu / (state.platosNoVeganos+platosVeganos) : 0}</h5>
+              <h5>
+                {state.platosNoVeganos + platosVeganos > 0
+                  ? state.acumulativoHealtScoreMenu /
+                    (state.platosNoVeganos + platosVeganos)
+                  : 0}
+              </h5>
               <span className="fs-6 color-du fw-bold">Promedio healthy</span>
             </div>
           </div>
@@ -237,9 +249,22 @@ const MenuComponent = () => {
                       Limpiar Menu
                     </button>
                   </div>
-                  {menu.map((item, index) => (
+                  {/* {menu.map((item, index) => (
                     <MenuItem key={index} data={item} eliminar={eliminar} />
-                  ))}
+                  ))} */}
+
+                  <div className="row">
+                    {menu.map((item, index) => (
+                      <div className="col-md-6">
+                        <PlatoItem
+                          key={index}
+                          data={item}
+                          eliminar={eliminar}
+                          edicion={true}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </>
               ) : (
                 <div className="col-12">

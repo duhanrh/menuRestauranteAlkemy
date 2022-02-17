@@ -1,4 +1,11 @@
-const PlatoItem = ({ data, agregar }) => {
+const PlatoItem = ({
+  data,
+  agregar,
+  editar,
+  eliminar,
+  verDetalles,
+  edicion = false,
+}) => {
   return (
     <div className="card mb-4 box-shadow">
       <img
@@ -23,19 +30,37 @@ const PlatoItem = ({ data, agregar }) => {
           </li>
           <li className="list-group-item">Costo: ${data.pricePerServing}</li>
           <li className="list-group-item">Health Score: {data.healthScore}</li>
-          <li className="list-group-item">Tiempo preparación: {data.readyInMinutes}</li>
+          <li className="list-group-item">
+            Tiempo preparación: {data.readyInMinutes}
+          </li>
         </ul>
         <div className="d-flex justify-content-between align-items-center mt-2">
           <div className="btn-group">
-            <button
-              className="btn btn-outline-dark"
-              onClick={() => agregar(data.id)}
-            >
-              Agregar
-            </button>
+            {edicion ? (
+              <>
+                <button
+                  className="btn btn-outline-dark"
+                  onClick={() => eliminar(data.id)}
+                >
+                  Eliminar
+                </button>
+                <button
+                  className="btn btn-outline-dark"
+                  onClick={() => eliminar(data.id)}
+                >
+                  Detalles
+                </button>
+              </>
+            ) : (
+              <button
+                className="btn btn-outline-dark"
+                onClick={() => agregar(data.id)}
+              >
+                Agregar
+              </button>
+            )}
           </div>
         </div>
-        
       </div>
     </div>
   );
