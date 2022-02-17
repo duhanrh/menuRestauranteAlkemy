@@ -28,6 +28,8 @@ const Dashboard = () => {
           </h2>
         </div>
         {/*==================================COMPONENTE MENU==================================*/}
+        <small>Está ejecutando esta aplicación en modo <b>{process.env.NODE_ENV}</b>.</small>
+        <p>Backend <b>{process.env.REACT_APP_BACKEND_DU}</b>.</p>
         <div className="mt-4">
           <MenuComponent /> 
         </div>

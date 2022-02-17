@@ -1,19 +1,21 @@
 import axios from "axios";
-// // import dotenv from 'dotenv';
+//import dotenv from "dotenv";
 
-// // dotenv.config();
+//dotenv.config({ path: '../../.env' });
+const proxxy = process.env.REACT_APP_PROXY_CORS;//genera error 403 por eso el proxy cors
+///console.log("env",process.env.REACT_APP_PROXY_CORS)
+// if(proxxy!=="" && proxxy!==null && proxxy!==undefined)
+// {
+//   proxxy=proxxy+"/"
+// }
 
-// // const baseURL = process.env.REACT_APP_API_URL_LOGIN;
+//const proxxy = process.env.REACT_APP_PROXY_CORS || "https://cors-anywhere.herokuapp.com/";
 
-//SOLUCION CORS
-//DEMO: https://cors-anywhere.herokuapp.com/';
-//MY HEROKU: https://cors-anywhere.herokuapp.com/';
-
-const proxxy = 'https://cors-anywhere.herokuapp.com/';
+const baseUrl = process.env.REACT_APP_API_URL_LOGIN;
 
 export const getUserA = (usuario, clave) => {
   axios
-    .get(proxxy+"http://challengee-react.alkemy.org/?email=" + usuario + "&password=" + clave, {
+    .get(`${proxxy}${baseUrl}/?email=${usuario}&password=${clave}`, {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }
@@ -51,14 +53,14 @@ export const getUserA = (usuario, clave) => {
 
 //EXTRAER DATOS DEL USUARIO
 export const getUserTest = async (successCallback, errorCallback) => {
-    const options = { method: 'GET', url: proxxy+'http://challenge-react.alkemy.org/?email=challenge@alkemy.org&password=react' };
+    const options = { method: 'GET', url: `${proxxy}${baseUrl}/?email=challenge@alkemy.org&password=react` };
     await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
 export const getUser = async (usuario, clave, successCallback, errorCallback) => {
   const options = {
     method: 'GET',
-    url: proxxy + 'http://challenge-react.alkemy.org/?email=' + usuario + '&password=' + clave,
+    url: ` ${proxxy}${baseUrl}/?email=${usuario}&password=${clave}`,
     headers: {
       'Content-Type': 'application/json'
     }
@@ -69,7 +71,7 @@ export const getUser = async (usuario, clave, successCallback, errorCallback) =>
 export const createUser = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
-    url: 'http://challenge-react.alkemy.org/',
+    url: `${proxxy}${baseUrl}`,
     headers: { 'Content-Type': 'application/json' },
     data,
   };
