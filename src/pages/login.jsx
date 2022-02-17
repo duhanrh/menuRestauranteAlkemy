@@ -133,8 +133,8 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
               "Favor comunicate con el administrador e indicale el siguiente código <<" +
                 error.response.status +
                 ">>",
-              "Aceptar",
-              ""
+              "Aceptar","","<a className='color-du' href='https://cors-anywhere.herokuapp.com/corsdemo' target='_blank'>Puedes probar nuevamente activando el siguiente proxy</a>"
+              
             );
           }
         } else if (error.request) {
@@ -173,7 +173,15 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
     setLoading(true);
     event.preventDefault();
     console.log("enviando datos..." + datos.user + " " + datos.pass);
-    fetchUsuario(datos.user, datos.pass);
+    if(datos.user!== "" && datos.pass!== "")
+    {
+      fetchUsuario(datos.user, datos.pass);
+    }
+    else
+    {
+      AlertSwal("error", "¡Ups...!", "Los campos de correo y contraseña son requeridos ", "Cerrar", "");
+    }
+    setLoading(false);
   };
 
   return (

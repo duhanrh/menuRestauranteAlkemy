@@ -14,76 +14,26 @@ body {
   background: #ffb03b !important;
 }
 
+.bg-du-transparent
+{background-color: rgba(255, 176, 59, 0.5);}
+
+.bg-du-transparent2
+{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 a {
-  text-decoration: none;
-  color: #ffb03b;
+  text-decoration: none !important;
+  color: #ffb03b !important;
 }
 
 a:hover {
-  color: #ffc56e;
-  text-decoration: none;
+  color: #ffc56e !important;
+  text-decoration: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Satisfy", sans-serif;
-}
-
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: 15px;
-  z-index: 996;
-  background: #ffb03b;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-.back-to-top i {
-  font-size: 28px;
-  color: #fff;
-  line-height: 0;
-}
-.back-to-top:hover {
-  background: hsl(36, 100%, 70%);
-  color: #fff;
-}
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Top Bar
---------------------------------------------------------------*/
-#topbar {
-  padding: 0;
-  font-size: 15px;
-  height: 50px;
-  transition: all 0.5s;
-  background: rgba(26, 24, 22, 0.8);
-  z-index: 996;
-  color: rgba(255, 255, 255, 0.7);
-}
-#topbar.topbar-transparent {
-  background: transparent;
-}
-#topbar.topbar-scrolled {
-  top: -50px;
-}
-#topbar i {
-  color: #ffb03b;
-  line-height: 0;
-}
-#topbar i span {
-  color: #fff;
-  font-style: normal;
-  padding-left: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -508,27 +458,19 @@ section {
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
-.breadcrumbs {
+/* .breadcrumbs {
   padding: 20px 0;
   background-color: #f2f1ef;
   min-height: 40px;
   margin-top: 120px;
 }
-@media (max-width: 992px) {
-  .breadcrumbs {
-    margin-top: 70px;
-  }
-}
+
 .breadcrumbs h2 {
   font-size: 24px;
   font-weight: 300;
   margin: 0;
 }
-@media (max-width: 992px) {
-  .breadcrumbs h2 {
-    margin: 0 0 10px 0;
-  }
-}
+
 .breadcrumbs ol {
   display: flex;
   flex-wrap: wrap;
@@ -545,18 +487,7 @@ section {
   padding-right: 10px;
   color: #6c757d;
   content: "/";
-}
-@media (max-width: 768px) {
-  .breadcrumbs .d-flex {
-    display: block !important;
-  }
-  .breadcrumbs ol {
-    display: block;
-  }
-  .breadcrumbs ol li {
-    display: inline-block;
-  }
-}
+} */
 
 /*--------------------------------------------------------------
 # About

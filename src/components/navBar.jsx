@@ -11,10 +11,7 @@ const NavBar = () => {
     };
 
   return (
-    <header className="navbar navbar-warning sticky-top bg-warning flex-md-nowrap p-0 shadow">
-      {/* <a className="text-white col-md-3 col-lg-2 me-0 px-3" href="/#">
-        Bambini
-      </a> */}
+    <header className="navbar navbar-warning sticky-top bg-du flex-md-nowrap p-0 shadow">
       <Link
               to="/administrator/"
               className="text-white col-md-3 col-lg-2 me-0 px-3"
@@ -34,15 +31,15 @@ const NavBar = () => {
           <FontAwesomeIcon icon={['fa', 'bars']}/>
         </span>
       </button>
-      <input
-        className="form-control form-control w-100"
+      {/* <input
+        className="form-control form-control w-100 rounded-pill"
         type="text"
         placeholder="Buscar información"
         aria-label="Search"
-      />
+      /> */}
       <div className="navbar-nav">
-        <div className="nav-item text-nowrap">
-          <button className="nav-link px-3 text-white" onClick={() => cerrarSesion()}>
+        <div className="nav-item text-nowrap m-2">
+          <button className="nav-link btn btn-outline-dark px-3 text-white" onClick={() => cerrarSesion()}>
             Cerrar sesión
           </button>
         </div>

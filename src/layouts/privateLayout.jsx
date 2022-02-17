@@ -9,7 +9,9 @@ const PrivateLayout = () => {
   if (localStorage.token !== undefined) {
     return (
       <>
-        <NavBar />
+        <div className="d-md-none">
+          <NavBar  />
+          </div>
         <div className="container-fluid">
           <div className="row">
             <SiderBar />
@@ -21,7 +23,6 @@ const PrivateLayout = () => {
       </>
     );
   } else {
-    //return <LoginPage />;
     return <Navigate to="/auth" />;
   }
 };

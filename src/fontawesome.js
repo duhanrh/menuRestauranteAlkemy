@@ -5,13 +5,28 @@ import {
 // import your icons
 import {
     faHome,
+    faPuzzlePiece,
+    faEye,
+    faEdit,
+    faBook,
+    faList,
+    faColumns,
+    faPlusCircle,
+    faShoppingCart,
+    faPersonBooth,
+    faPoll,
     faArrowAltCircleUp,
     faMapMarkedAlt,
     faClock,
     faAt,
     faPhoneAlt,
     faStar,
-    faBars
+    faBars,
+    faDollarSign,
+    faTags,
+    faSearch,
+    faUtensils,
+    faSeedling,
     //faPlayCircle
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,6 +46,22 @@ import {
 
 library.add(
     faHome,
+    faUtensils,
+    faPuzzlePiece,
+    faEye,
+    faEdit,
+    faBook,
+    faList,
+    faColumns,
+    faPlusCircle,
+    faShoppingCart,
+    faPersonBooth,
+    faPoll,
+    faDollarSign,
+    faTags,
+    faSeedling,
+    faUtensils,
+    faSearch,
     faArrowAltCircleUp,
     faMapMarkedAlt,
     faClock,
