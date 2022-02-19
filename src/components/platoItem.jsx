@@ -1,11 +1,24 @@
+import React, { useEffect, useState} from "react";
+
 const PlatoItem = ({
   data,
   agregar,
   editar,
   eliminar,
-  verDetalles,
-  edicion = false,
+  edicion = false
 }) => {
+
+  const [showDetalles, setShowDetalles] = useState(false);
+
+  const show = () => {
+    setShowDetalles(!showDetalles);
+    console.log(showDetalles)
+  }
+
+  useEffect(() => {
+      console.log("cambio");
+  }, [showDetalles]);
+
   return (
     <div className="card mb-4 box-shadow">
       <img
@@ -21,17 +34,36 @@ const PlatoItem = ({
         data-holder-rendered="true"
       />
 
-      <div className="card-header bg-du text-white">{data.title}</div>
+      <div className="card-header bg-du text-white text-uppercase">
+        {data.title}
+      </div>
 
       <div className="card-body">
+        {
+          showDetalles && (
+            <div className="card-text">
+              {" "}
+              <p
+                style={{ textAlign: "justify" }}
+                dangerouslySetInnerHTML={{ __html: data.summary }}
+              />{" "}
+            </div>
+          )
+          //dangerouslySetInnerHTML, ayuda con los escapes que tiene el texto
+        }
+
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
             Receta: {data.vegan === true ? "vegana" : "no vegana"}
           </li>
-          <li className="list-group-item">Costo: ${data.pricePerServing}</li>
-          <li className="list-group-item">Health Score: {data.healthScore}</li>
           <li className="list-group-item">
-            Tiempo preparación: {data.readyInMinutes}
+            Costo: ${data.pricePerServing.toFixed(2)}
+          </li>
+          <li className="list-group-item">
+            Health Score: {data.healthScore.toFixed(2)}
+          </li>
+          <li className="list-group-item">
+            Tiempo preparación: {data.readyInMinutes.toFixed(0)} min
           </li>
         </ul>
         <div className="d-flex justify-content-between align-items-center mt-2">
@@ -46,9 +78,9 @@ const PlatoItem = ({
                 </button>
                 <button
                   className="btn btn-outline-dark"
-                  onClick={() => eliminar(data.id)}
+                  onClick={() => show()}
                 >
-                  Detalles
+                  {showDetalles ? <><span className="text-danger">-</span> Detalles</>:<><span className="text-success">+</span> Detalles</>}
                 </button>
               </>
             ) : (

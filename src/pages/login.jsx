@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ButtonLoading from "../components/buttonLoading";
 import jwt_decode from "jwt-decode";
 import ImgLogo from "../assets/img/logo.png";
-import { getUser } from "../API/login";
+import { getUserByPost, getUserByGet } from "../API/login";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -101,7 +101,7 @@ const FormularioLogin = ({ setMostrarResetForm }) => {
   //FUNCIONA
   const fetchUsuario = async (user, pass) => {
     //Enviar la info a la API
-    await getUser(
+    await getUserByPost(
       user,
       pass,
       (response) => {

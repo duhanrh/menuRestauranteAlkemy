@@ -22,7 +22,9 @@ import Index from "./pages/index";
 import Gallery from "./pages/gallery";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
-import Dashboard from "./pages/admin/dashboard";
+import IndexHome from "./pages/admin/index";
+import EndPointJsonServer from "./pages/admin/duhan";
+import EndPointSpoonacular from "./pages/admin/alkemy";
 import OrdersPage from "./pages/admin/orders/index";
 import ProductsPage from "./pages/admin/products/index";
 import CustomersPage from "./pages/admin/customers/index";
@@ -46,13 +48,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("Autenticacion token context :" + authToken);
-    console.log("User context :" + JSON.stringify(userData.correo));
-
     if (localStorage.token !== undefined) {
-      console.log("local storage",localStorage.token);
-      console.log("Token asignado a md5 "+md5(localStorage.token))
-      //this.props.history.push('/administrator')
       setAuthToken(localStorage.getItem("token"));
     } else {
       console.log("No logueado");
@@ -61,7 +57,8 @@ function App() {
     if (authToken) {
       const decoded = jwt_decode(authToken);
       setUserData({
-        correo: decoded.email
+        correo: decoded.email,
+        name: decoded.email.split("@")[0]
       });
     }
   }, [authToken]);
@@ -77,8 +74,9 @@ function App() {
             </Route>
 
             <Route path="/administrator" element={<PrivateLayout />}>
-              <Route path="" element={<Dashboard />} />
-              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="" element={<IndexHome />} />
+              <Route path="home" element={<EndPointJsonServer />} />
+              <Route path="home2" element={<EndPointSpoonacular />} />
               <Route path="productos" element={<ProductsPage />} />
               <Route path="clientes" element={<CustomersPage />} />
               <Route path="ordenes" element={<OrdersPage />} />

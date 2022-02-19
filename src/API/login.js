@@ -1,17 +1,16 @@
 import axios from "axios";
-//import dotenv from "dotenv";
 
-//dotenv.config({ path: '../../.env' });
-const proxxy = process.env.REACT_APP_PROXY_CORS;//genera error 403 por eso el proxy cors
-///console.log("env",process.env.REACT_APP_PROXY_CORS)
-// if(proxxy!=="" && proxxy!==null && proxxy!==undefined)
-// {
-//   proxxy=proxxy+"/"
-// }
+let proxxy = process.env.REACT_APP_PROXY_CORS || "";//la conexion me genera genera error 403 por eso el proxy cors
+if(proxxy.trim().slice(-1)!=="/" && proxxy!=="")
+{
+  proxxy = proxxy +"/";
+}
 
-//const proxxy = process.env.REACT_APP_PROXY_CORS || "https://cors-anywhere.herokuapp.com/";
-
-const baseUrl = process.env.REACT_APP_API_URL_LOGIN;
+let baseUrl = process.env.REACT_APP_API_URL_LOGIN;
+if(baseUrl.trim().slice(-1)!=="/" && baseUrl!=="")
+{
+  baseUrl = baseUrl +"/";
+}
 
 export const getUserA = (usuario, clave) => {
   axios
@@ -53,17 +52,31 @@ export const getUserA = (usuario, clave) => {
 
 //EXTRAER DATOS DEL USUARIO
 export const getUserTest = async (successCallback, errorCallback) => {
-    const options = { method: 'GET', url: `${proxxy}${baseUrl}/?email=challenge@alkemy.org&password=react` };
+    const options = { method: 'GET', url: `${proxxy}${baseUrl}?email=challenge@alkemy.org&password=react` };
     await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const getUser = async (usuario, clave, successCallback, errorCallback) => {
+export const getUserByGet = async (usuario, clave, successCallback, errorCallback) => {
   const options = {
     method: 'GET',
-    url: ` ${proxxy}${baseUrl}/?email=${usuario}&password=${clave}`,
+    url: ` ${proxxy}${baseUrl}?email=${usuario}&password=${clave}`,
     headers: {
       'Content-Type': 'application/json'
     }
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const getUserByPost = async (usuario, clave, successCallback, errorCallback) => {
+  const data = {
+    "email":usuario,
+    "password":clave,
+  }
+  const options = {
+    method: 'POST',
+    url: ` ${proxxy}${baseUrl}`,
+    headers: {'Content-Type': 'application/json'},
+    data,
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
