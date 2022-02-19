@@ -1,7 +1,7 @@
 
 import React, { useReducer, useState, useEffect } from "react";
 import { ACCIONES } from "../../actions/menuAction";
-import BreadCrumb from "../../components/breadCrumb";
+import BreadCrumb from "../../components/breadcrumb";
 import { initialState, menuReducer } from "../../reducers/menuReducer";
 import PlatoItem from "../../components/platoItem";
 import Loading from "../../components/loading";

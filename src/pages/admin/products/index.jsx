@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import BreadCrumb from "../../../components/breadCrumb";
+import BreadCrumb from "../../../components/breadcrumb";
 import DataTableDu from "../../../components/dataTableDu";
 import "../../../assets/css/dashboard.css";
 

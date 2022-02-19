@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BreadCrumb from "../../components/breadCrumb";
+import BreadCrumb from "../../components/breadcrumb";
 import NoDataComponent from "../../components/noDataComponent";
 import { useUser } from "../../context/userContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
