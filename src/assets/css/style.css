@@ -37,41 +37,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-# Header
+# Hader Section
 --------------------------------------------------------------*/
-#header {
-  top: 50px;
-  height: 70px;
-  z-index: 997;
+#contentHeader {
+  /* top: 40px; */
+  min-height: 80px;
   transition: all 0.5s;
   padding: 10px 0;
   background: rgba(26, 24, 22, 0.85);
+  margin-Bottom:10px;
 }
-#header.header-transparent {
-  background: transparent;
-}
-#header.header-scrolled {
-  top: 0;
-  background: rgba(26, 24, 22, 0.85);
-}
-#header .logo h1 {
-  font-size: 28px;
-  margin: 0;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: 3px;
-}
-#header .logo h1 a, #header .logo h1 a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-#header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 50px;
-  align-items: center;
-}
-
+#contentHeader a:hover {
+    color: red !important;
+    text-decoration: none !important;
+  }
+/*---------------------------Logo------------------------------------*/
+.logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 60px !important;
+    align-items: center;
+  }
 /*--------------------------------------------------------------
 # Book a table button Menu
 --------------------------------------------------------------*/
@@ -125,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 0 10px 24px;
   font-size: 15px;
   font-weight: 500;
-  color: white;
+  /* color: white; */
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -288,23 +274,23 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 /*--------------------------------------------------------------
-# Hero Section
+# Carousel Section
 --------------------------------------------------------------*/
-#hero {
+#contentCarousel {
   width: 100%;
   height: 100vh;
   background-color: rgba(39, 37, 34, 0.8);
   overflow: hidden;
   padding: 0;
 }
-#hero .carousel-item {
+#contentCarousel .carousel-item {
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-#hero .carousel-item::before {
+#contentCarousel .carousel-item::before {
   content: "";
   background-color: rgba(12, 11, 10, 0.5);
   position: absolute;
@@ -313,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   bottom: 0;
 }
-#hero .carousel-container {
+#contentCarousel .carousel-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -323,48 +309,48 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
 }
-#hero .carousel-content {
+#contentCarousel .carousel-content {
   text-align: center;
 }
-#hero h2 {
+#contentCarousel h2 {
   color: #fff;
   margin-bottom: 30px;
   font-size: 48px;
   font-weight: 700;
 }
-#hero h2 span {
+#contentCarousel h2 span {
   color: #ffb03b;
 }
-#hero p {
+#contentCarousel p {
   width: 80%;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
   margin: 0 auto 30px auto;
   color: #fff;
 }
-#hero .carousel-inner .carousel-item {
+#contentCarousel .carousel-inner .carousel-item {
   transition-property: opacity;
   background-position: center top;
 }
-#hero .carousel-inner .carousel-item,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
+#contentCarousel .carousel-inner .carousel-item,
+#contentCarousel .carousel-inner .active.carousel-item-start,
+#contentCarousel .carousel-inner .active.carousel-item-end {
   opacity: 0;
 }
-#hero .carousel-inner .active,
-#hero .carousel-inner .carousel-item-next.carousel-item-start,
-#hero .carousel-inner .carousel-item-prev.carousel-item-end {
+#contentCarousel .carousel-inner .active,
+#contentCarousel .carousel-inner .carousel-item-next.carousel-item-start,
+#contentCarousel .carousel-inner .carousel-item-prev.carousel-item-end {
   opacity: 1;
   transition: 0.5s;
 }
-#hero .carousel-inner .carousel-item-next,
-#hero .carousel-inner .carousel-item-prev,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
+#contentCarousel .carousel-inner .carousel-item-next,
+#contentCarousel .carousel-inner .carousel-item-prev,
+#contentCarousel .carousel-inner .active.carousel-item-start,
+#contentCarousel .carousel-inner .active.carousel-item-end {
   left: 0;
   transform: translate3d(0, 0, 0);
 }
-#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+#contentCarousel .carousel-control-next-icon, #contentCarousel .carousel-control-prev-icon {
   background: none;
   font-size: 30px;
   line-height: 0;
@@ -380,14 +366,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
 }
-#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+#contentCarousel .carousel-control-next-icon:hover, #contentCarousel .carousel-control-prev-icon:hover {
   background: rgba(255, 255, 255, 0.3);
   color: rgba(255, 255, 255, 0.8);
 }
-#hero .carousel-indicators li {
+#contentCarousel .carousel-indicators li {
   cursor: pointer;
 }
-#hero .btn-menu, #hero .btn-book {
+#contentCarousel .btn-menu, #contentCarousel .btn-book {
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 1px;
@@ -403,20 +389,20 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   border: 2px solid #ffb03b;
 }
-#hero .btn-menu:hover, #hero .btn-book:hover {
+#contentCarousel .btn-menu:hover, #contentCarousel .btn-book:hover {
   background: #ffb03b;
   color: #fff;
 }
 @media (max-width: 768px) {
-  #hero h2 {
+  #contentCarousel h2 {
     font-size: 28px;
   }
 }
 @media (min-width: 1024px) {
-  #hero p {
+  #contentCarousel p {
     width: 50%;
   }
-  #hero .carousel-control-prev, #hero .carousel-control-next {
+  #contentCarousel .carousel-control-prev, #contentCarousel .carousel-control-next {
     width: 5%;
   }
 }
@@ -425,7 +411,8 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 10px 0; /* padding: 60px 0;  */
+  padding: 0 0; /* padding: 60px 0;  */
+  margin: 2px 2px;
 }
 
 .section-bg {
@@ -743,6 +730,11 @@ section {
   font-weight: 700;
   color: #ff9b08;
 }
+.menu .menu-content a:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
+
 .menu .menu-content span {
   background: #fff;
   position: relative;
@@ -1055,12 +1047,13 @@ section {
 .chefs .member .social {
   margin-top: 15px;
 }
-.chefs .member .social a {
+.chefs a {
   transition: color 0.3s;
-  color: #7a7368;
-}
-.chefs .member .social a:hover {
   color: #ffb03b;
+}
+.chefs a:hover {
+  color: black !important;
+  text-decoration: none !important;
 }
 .chefs .member .social i {
   font-size: 16px;

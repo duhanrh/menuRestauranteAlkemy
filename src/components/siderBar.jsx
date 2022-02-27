@@ -1,33 +1,31 @@
 import React from "react";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 import PrivateComponent from "../components/privateComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImgLogo from "../assets/img/logo.png";
 
 const SiderBar = () => {
-  
+
   const navigate = useNavigate();
   const cerrarSesion = () => {
-    //localStorage.setItem('token', null);
     localStorage.removeItem("token");
-    navigate('/');
-    };
+    navigate("/");
+  };
 
   return (
     <nav
       id="sidebarMenu"
       className="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse"
     >
-      {/* bg-light */}
       <PrivateComponent>
         <div className="position-sticky pt-3">
-        <img
-                            src={ImgLogo}
-                            className="d-block mx-auto border bg-dark"
-                            style={{ borderRadius: "50%" }}
-                            height="100"
-                            alt="Logo RB"
-                          />
+          <img
+            src={ImgLogo}
+            className="d-block mx-auto border bg-dark"
+            style={{ borderRadius: "50%" }}
+            height="100"
+            alt="Logo RB"
+          />
           <ul className="nav flex-column">
             <li className="nav-item">
               <Link
@@ -79,19 +77,16 @@ const SiderBar = () => {
               </Link>
             </li>
           </ul>
-          
         </div>
       </PrivateComponent>
-      
 
-      <button className="nav-link btn btn-warning w-100" onClick={() => cerrarSesion()}>
-            Cerrar sesión
+      <button
+        className="nav-link btn btn-warning w-100"
+        onClick={() => cerrarSesion()}
+      >
+        Cerrar sesión
       </button>
-
     </nav>
-
-
-
   );
 };
 export default SiderBar;

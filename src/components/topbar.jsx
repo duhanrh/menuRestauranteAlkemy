@@ -2,12 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TopBar = () => {
   return (
-    <section
+    <div
       id="topbar"
-      className="bg-dark d-flex align-items-center fixed-top topbar-transparent" style = {{marginBottom: "60px"}}
+      className="bg-dark fixed-topp"
     >
       <div className="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-        <i className="bi d-flex align-items-center">
+        <i className="d-flex align-items-center">
           <FontAwesomeIcon icon={["fa", "phone-alt"]} />
         </i>
         <span className="m-2">+57 XXX XXX XXXX</span>
@@ -16,7 +16,7 @@ const TopBar = () => {
         </i>
         <span className="m-2">Lun-Dom: 11:00 AM - 11:00 PM</span>
       </div>
-    </section>
+    </div>
   );
 };
 

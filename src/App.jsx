@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import md5 from "md5";
 
 //context
 import { UserContext } from "./context/userContext";

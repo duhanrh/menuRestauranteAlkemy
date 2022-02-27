@@ -1,5 +1,5 @@
 import "../assets/css/carousel.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const Carousel = () => {
   return (

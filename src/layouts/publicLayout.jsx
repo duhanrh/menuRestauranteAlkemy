@@ -1,30 +1,26 @@
 import React from "react";
 import { Outlet } from "react-router";
-import TopBar from "../components/topbar";
+// import TopBar from "../components/topbar";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Carousel from "../components/carousel";
 import BackToTop from "../components/backToTop";
-import "../assets/js/main";
+//import "../assets/js/main";
 
 const PublicLayout = () => {
   return (
     <>
-      {/* ======= Top Bar =======  */}
-      <TopBar />
-      {/* ======= Header ======= */}
-      <div style={{ marginBottom:"110px"}}>
+      <section id="contentHeader">
       <Header />
-      </div>
-      {/* ======= Hero Section ======= */}
-      {/* <div className="d-none d-sm-none d-md-block"> */}
-      <div className="d-md-block">
+      </section>
+      <section id="contentCarousel-" className="d-md-block">
       <Carousel />
-     </div>
-      {/* ======= Main ======= */}
+     </section>
+     <section>
       <main>
         <Outlet />
       </main>
+      </section>
       <Footer />
       <BackToTop />
     </>

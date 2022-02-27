@@ -39,9 +39,11 @@ const IndexHome = () => {
             <Link to="./home2" className="btn btn-outline-dark">
               Endpoint Spoonacular
             </Link>
+            {process.env.NODE_ENV==="development" &&
             <a className="btn btn-outline-dark" href="https://restaurantealkemy.herokuapp.com/" target="_blank">
               Ver despliegue en heroku
             </a>
+            }
           </div>
         </div>
       </main>
